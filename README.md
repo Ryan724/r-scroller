@@ -1,6 +1,6 @@
 react-scroller
 ============
- react-scroller 是对 ［zynga/scroller］的封装；
+ react-scroller 是对[zynga/scroller]的封装；
 
  ###  基本配置：
 ```javascript
