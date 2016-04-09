@@ -39,7 +39,8 @@ react-scroller 是对[zynga/scroller]的封装；
 
 ### demo
 
-    [demo0-simple-scroller](http://ryan724.github.io/project/react-scroller/build/demo0-simple-scroller)
-    ![demo0-simple-scroller](https://raw.githubusercontent.com/Ryan724/Ryan-blog/master/image/simple-scroller.gif)
+[demo0-simple-scroller](http://ryan724.github.io/project/react-scroller/build/demo0-simple-scroller)
+
+![demo0-simple-scroller](https://raw.githubusercontent.com/Ryan724/Ryan-blog/master/image/simple-scroller.gif)
 
 [zynga/scroller]:http://github.com/zynga/scroller
