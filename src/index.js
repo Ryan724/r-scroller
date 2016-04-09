@@ -12,7 +12,7 @@
  * 			bouncing ： true // 弹性复位
  * 			locking ： true  
  * 			paging ： false   //启用分页
- * 			snapping ： false //启用网格对其
+ * 			snapping ： false //启用网格对齐
  * 			zooming ： false  //大小缩放
  * 			minZoom ： 0.5
  * 			maxZoom ： 3
@@ -109,12 +109,17 @@ class ReactScroller extends Component {
 	doTouchEnd = (e) => {
 		this.scroller.doTouchEnd(e.timeStamp);
 	}
-
+	doMouseEvent =(targetFun,e)=>{
+		if('ontouchstart' in window) return;
+		targetFun === "doTouchEnd"
+				?this.scroller[targetFun](e.timeStamp)
+				:this.scroller[targetFun]([{pageX: e.pageX, pageY: e.pageY }], e.timeStamp);
+	}
 	reflow() {
 		let content = ReactDOM.findDOMNode(this.refs.reactScroller)
 		let container = content.parentNode;
 		let rect = container.getBoundingClientRect();
-		this.scroller.setDimensions(container.clientWidth, container.clientHeight-40, content.offsetWidth, content.offsetHeight);
+		this.scroller.setDimensions(container.clientWidth, container.clientHeight, content.offsetWidth, content.offsetHeight);
 		this.scroller.setPosition(rect.left + container.clientLeft, rect.top + container.clientTop);
 	};
 
@@ -122,6 +127,9 @@ class ReactScroller extends Component {
 		let style = Object.assign({}, this.props.style)
 		return (<div
 					ref="reactScroller"
+					onMouseDown = {this.doMouseEvent.bind(this,"doTouchStart")}
+					onMouseMove = {this.doMouseEvent.bind(this,"doTouchMove")}
+					onMouseUp = {this.doMouseEvent.bind(this,"doTouchEnd")}
 					onTouchStart = {::this.doTouchStart}
 					onTouchMove = {::this.doTouchMove}
 					onTouchEnd = {::this.doTouchEnd}
