@@ -1,14 +1,15 @@
 {
-  "name": "react-scroller",
+  "name": "r-scroller",
   "version": "1.0.0",
-  "description": "",
+  "description": "a scroll component for React.js",
   "main": "src/index.js",
   "scripts": {
       	"start": "webpack-dev-server --config webpack.dev.config.js --progress --colors",
       	"build-demos": "webpack --config webpack.prod.config.js --progress --colors",
       	"build": "webpack --config webpack.build.config.js --progress --colors"
   },
-  "author": "",
+  "license": "MIT",
+  "author": "Ryan724",
   "license": "ISC",
   "dependencies": {
     "babel-runtime": "^5.8.29",
