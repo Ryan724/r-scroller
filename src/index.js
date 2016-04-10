@@ -2,36 +2,6 @@
  * ReactScroller
  * http://github.com/Ryan724/react-scroller
  * ReactScroller 对 Scroller 库进行react封装, 
- * 基本配置：
- * 		config:   给Scroller 库的配置项
- * 		｛
- * 			scrollingX ： true  
- * 			scrollingY ： true   //也可以根据chrilden的scrollable属性设置
- * 			animating ： true   //是否滑动停止
- * 			animationDuration ： 250 //滑动到静止过渡时间
- * 			bouncing ： true // 弹性复位
- * 			locking ： true  
- * 			paging ： false   //启用分页
- * 			snapping ： false //启用网格对齐
- * 			zooming ： false  //大小缩放
- * 			minZoom ： 0.5
- * 			maxZoom ： 3
- * 		｝
- * 		snap:{   //考虑当中。。。。。。
- * 			width:
- * 			height:
- * 		} 
- * 		fetachConfig ：  配置获取数据
- * 		｛
- * 			dragLength： 20 //正数向上，负数向下拖拽执行
- * 			activateCallback,  //准备获取数据回调函数
- * 			deactivateCallback, //获取数据结束回调函数
- * 			startCallback,   // 获取数据的回调函数
- * 		｝
- * 		style:{       //本组件在父组件中滚动
- * 			width:
- * 			height:  
- * 		}
  */
 
 import React, {Component, PropTypes } from 'react';
@@ -84,32 +54,31 @@ class ReactScroller extends Component {
 		this.bulidfecth();
 	}
 
-	bulidfecth() {
+	bulidfecth(){
 		if(!this.props.fetachConfig) return;
 		let { activateCallback, deactivateCallback, startCallback, dragLength } = this.props.fetachConfig;
 		if(!activateCallback) return;
 		let activate = activateCallback||function(){};
 		let deactivate= deactivateCallback||function(){};
-		let start= ()=>{
-			this.scroller.finishPullToRefresh();
-			startCallback();
+		let start = () =>{
+			this.scroller.finishPullToRefresh(); 
+			startCallback(); 
 		};
 		this.scroller.activatePullToRefresh(dragLength, activate, deactivate, start);
 	}
-
-	doTouchStart = (e) => { 
+	doTouchStart(e){ 
 		if (e.touches[0] && e.touches[0].target && e.touches[0].target.tagName.match(/input|textarea|select/i)) return;
 		this.scroller.doTouchStart(e.touches, e.timeStamp);
 	}
 
-	doTouchMove = (e) => {
+	doTouchMove(e){
 		this.scroller.doTouchMove(e.touches, e.timeStamp, e.scale);
 	}
 
-	doTouchEnd = (e) => {
+	doTouchEnd(e){
 		this.scroller.doTouchEnd(e.timeStamp);
 	}
-	doMouseEvent =(targetFun,e)=>{
+	doMouseEvent (targetFun,e){
 		if('ontouchstart' in window) return;
 		targetFun === "doTouchEnd"
 				?this.scroller[targetFun](e.timeStamp)
@@ -130,9 +99,9 @@ class ReactScroller extends Component {
 					onMouseDown = {this.doMouseEvent.bind(this,"doTouchStart")}
 					onMouseMove = {this.doMouseEvent.bind(this,"doTouchMove")}
 					onMouseUp = {this.doMouseEvent.bind(this,"doTouchEnd")}
-					onTouchStart = {::this.doTouchStart}
-					onTouchMove = {::this.doTouchMove}
-					onTouchEnd = {::this.doTouchEnd}
+					onTouchStart = {this.doTouchStart.bind(this)}
+					onTouchMove = {this.doTouchMove.bind(this)}
+					onTouchEnd = {this.doTouchEnd.bind(this)}
 					style = {style}>
 					{this.renderChildn()}
 		        </div>);
