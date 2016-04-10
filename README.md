@@ -43,7 +43,7 @@ module.exports = React.createClass({
 ## Options
 
 ### config
-  给Scroller 库的配置项
+给Scroller 库的配置项
 
 - `scrollingX` ：`true`  
 - `scrollingY` ：`true`   也可以根据chrilden的scrollable属性设置
@@ -59,7 +59,7 @@ module.exports = React.createClass({
 
 ### fetachConfig 
 
-    配置获取数据
+配置获取数据
 
 - `dragLength`：`20` 正数向上，负数向下拖拽执行
 - `activateCallback`：`fun` 准备获取数据回调函数
@@ -68,7 +68,7 @@ module.exports = React.createClass({
 
 ### snap
 
-    考虑当中。。。。。。
+考虑当中。。。。。。
 
 
 
