@@ -1,12 +1,7 @@
 'use strict';
 
-process.env.NODE_ENV = process.env.NODE_ENV || 'production';
-
 var webpack = require('webpack');
 var path = require('path');
-	var entry = {
-	  'demo0-simple-scroller': './demos/demo0-simple-scroller/index.jsx'
-	};
     var loaders = [
         {
             test: /\.jsx?$/
@@ -16,11 +11,11 @@ var path = require('path');
         }
     ];
 	var config =  {
-			  entry: entry,
+			  entry: "./src/index",
 			  output: {
-			    filename: '[name]/all.js',
-			    publicPath: '/release/',
-		        path: __dirname + '/release/',
+			    filename: '/index.js',
+			    publicPath: '/libs/',
+		        path: __dirname + '/libs/',
 			  },
 			  module: {
 			    loaders:loaders,

@@ -5,7 +5,8 @@
   "main": "src/index.js",
   "scripts": {
       	"start": "webpack-dev-server --config webpack.dev.config.js --progress --colors",
-      	"build": "webpack --config webpack.prod.config.js --progress --colors"
+      	"build-demos": "webpack --config webpack.prod.config.js --progress --colors",
+      	"build": "webpack --config webpack.build.config.js --progress --colors"
   },
   "author": "",
   "license": "ISC",
