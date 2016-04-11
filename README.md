@@ -1,12 +1,12 @@
-react-scroller
+r-scroller
 ============
 
-react-scroller 是对[zynga/scroller]的封装；
+r-scroller 是对[zynga/scroller]的封装；
 
 ## Install & Run
     
-    $ npm install react-scroll
-    $ cd react-scroll
+    $ npm install r-scroller
+    $ cd r-scroller
     $ npm install
     $ npm start
 
