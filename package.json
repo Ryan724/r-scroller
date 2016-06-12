@@ -3,26 +3,27 @@
   "version": "1.0.1",
   "description": "a scroll component for React.js",
   "author": "zpj_ryan",
-  "email":"zpj090724@163.com",
+  "email": "zpj090724@163.com",
   "main": "lib/index.js",
   "scripts": {
-      	"start": "webpack-dev-server --config webpack.dev.config.js --progress --colors",
-      	"build-demos": "webpack --config webpack.prod.config.js --progress --colors",
-      	"build": "rm -rf lib && babel src --out-dir lib && webpack --config webpack.build.config.js --progress --colors"
+    "start": "webpack-dev-server --config webpack.dev.config.js --progress --colors",
+    "build-demos": "webpack --config webpack.prod.config.js --progress --colors",
+    "build": "rm -rf lib && babel src --out-dir lib && webpack --config webpack.build.config.js --progress --colors"
   },
   "license": "MIT",
   "license": "ISC",
   "dependencies": {
-    "babel-runtime": "^5.8.29", 
+    "babel-runtime": "^5.8.29",
     "react": "^0.14.3",
     "react-dom": "^0.14.2"
-  },	
+  },
   "devDependencies": {
     "webpack": "^1.11.0",
     "webpack-dev-server": "^1.10.1",
+    "extract-text-webpack-plugin": "^1.0.1",
     "babel": "^5.8.23",
     "babel-core": "^5.6.18",
     "babel-loader": "^5.3.2",
     "css-loader": "0.23.0"
+    } 
   }
-}
